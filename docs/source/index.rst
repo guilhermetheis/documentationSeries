@@ -10,7 +10,7 @@ This serves as a place to store all the documentation for several projects creat
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Projects:
 
    documentation.rst
 

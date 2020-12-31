@@ -1,2 +1,8 @@
-Documentation
-=============
+Documentation website
+=====================
+
+Here we describe how this documentation was created. The documentation is based on `reStructuredText <https://en.wikipedia.org/wiki/ReStructuredText>`_. `Sphinx <https://www.sphinx-doc.org/en/master/>`_ is then used to make beautiful HTML. Finally `Read the docs <https://readthedocs.org/>`_ is used to put this documentation online by linking to its `Github <https://github.com/>`_ repository.
+
+As one can see, there are three parts of this project that can "fail". For the typescript, usually, all the problems and questions are solved by typing problem+reStructuredText in google. For **Sphinx** `Stackoverflow <https://stackoverflow.com/>`_ and google are good friends. In the  case of this a `StackOverflow thread <https://stackoverflow.com/questions/65471557/make-html-not-working-for-sphinx-documentation-in-windows-10>`_ was used to understand the differences on how to generate the HTML in different OS's and the difference between **powershell** and **command prompt** in windows.
+
+As of 31/12/2020 this website was made by following `Read the docs *Getting Started with Sphinx* <https://docs.readthedocs.io/en/stable/intro/getting-started-with-sphinx.html>`_. Between the tutorial and the version used there are some differences, such as using windows and powershell as described in the StackOverflow thread. Secondly, some of the options for the **Read the docs** project can be only accessed once the project itself is created, in the *Admin* tab, under *Advanced settings*. It is recommended to point the ``conf.py`` ath on the *Advanced settings* tab. Moving forward, we'll create a requirement files and make as a `venv <https://docs.python.org/3/tutorial/venv.html>`_ capable project.
