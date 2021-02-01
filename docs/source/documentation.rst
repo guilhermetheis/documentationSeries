@@ -1,8 +1,50 @@
-Documentation website
-=====================
+Getting started with gnuradio 3.8 and rpitx/rtl-sdr
+===================================================
 
-Here we describe how this documentation was created. The documentation is based on `reStructuredText <https://en.wikipedia.org/wiki/ReStructuredText>`_. `Sphinx <https://www.sphinx-doc.org/en/master/>`_ is then used to make beautiful HTML. Finally `Read the docs <https://readthedocs.org/>`_ is used to put this documentation online by linking to its `Github <https://github.com/>`_ repository.
+First, install gnuradio
 
-As one can see, there are three parts of this project that can "fail". For the typescript, usually, all the problems and questions are solved by typing problem+reStructuredText in google. For **Sphinx** `Stackoverflow <https://stackoverflow.com/>`_ and google are good friends. In the  case of this a `StackOverflow thread <https://stackoverflow.com/questions/65471557/make-html-not-working-for-sphinx-documentation-in-windows-10>`_ was used to understand the differences on how to generate the HTML in different OS's and the difference between **powershell** and **command prompt** in windows.
+.. code-block:: bash
 
-As of 31/12/2020 this website was made by following `Read the docs *Getting Started with Sphinx* <https://docs.readthedocs.io/en/stable/intro/getting-started-with-sphinx.html>`_. Between the tutorial and the version used there are some differences, such as using windows and powershell as described in the StackOverflow thread. Secondly, some of the options for the **Read the docs** project can be only accessed once the project itself is created, in the *Admin* tab, under *Advanced settings*. It is recommended to point the ``conf.py`` ath on the *Advanced settings* tab. Moving forward, we'll create a requirement files and make as a `venv <https://docs.python.org/3/tutorial/venv.html>`_ capable project.
+        sudo apt update
+        sudo apt upgrade
+        sudo apt install gnuradio
+
+Then, to communicate to *rpitx* via **TCP** install the *gr-grnet* package which can be obtained here:
+
+https://github.com/ghostop14/gr-grnet.git
+
+Might be necessary to install *swig* and other packages to *cmake* run without errors.
+
+Please note that the *tcp-server* block bundled with the gnuradio doesn't work (it refuses all connections with *rpitx* without a motive).
+
+Creating a BPSK/QPSK modulation
+===============================
+
+Creating a BPSK with *wav* file
+-------------------------------
+
+First, place an *wav* audio file in the project's directory, then add the *Wav File Source* block with the following parameters:
+
+.. code-block:: text
+
+        * File: name of the wav audio file
+        * Repeat: either Yes or No
+        * N Channels: 1
+
+Then, use the *Float To Char* block to convert the wav data into char arrays, with *Scale* set to 32.
+
+Now, to convert the raw data to BSPK modulation, use the *Repack Bits* with 8 bits per input byte and 1 bit per output byte, since the BPSK modulation will generate a pair of symbols mapped to (0,1). 
+
+To effectively convert the individual bits to symbols, use the *Chunks to Symbols* block with the following parameters:
+
+.. code-block:: text
+
+        * Input Type: byte
+        * Output Type: complex
+        * Symbol Table: [0, 1]
+        * Dimention: 1
+        * Num Ports: 1
+
+The image below illustrates the flowgraph with the steps taken so far:
+
+.. image:: ./imgs/bpsk_wav/bpsk_wav_1.png
