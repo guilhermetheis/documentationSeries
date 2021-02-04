@@ -14,8 +14,8 @@ This serves as a place to store all the documentation for several projects creat
 
    documentation.rst
    bpsk-wav.rst
-
-
+   bpsk-text.rst
+   todo-list.rst
 
 Indices and tables
 ==================

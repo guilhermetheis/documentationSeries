@@ -1,3 +1,5 @@
+.. _bpsk-wav:
+
 Creating a BPSK modulation with audio
 =====================================
 
