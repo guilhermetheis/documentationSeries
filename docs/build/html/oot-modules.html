@@ -1,0 +1,275 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Creating an OOT Module and edit in Eclipse &mdash; Hobbyist projects documentation 0.0.2 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="TODO List" href="todo-list.html" />
+    <link rel="prev" title="Creating a BPSK modulation with text file" href="bpsk-text.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Hobbyist projects documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Projects:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="documentation.html">Getting started with gnuradio 3.8 and rpitx/rtl-sdr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpsk-wav.html">Creating a BPSK modulation with audio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpsk-text.html">Creating a BPSK modulation with text file</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Creating an OOT Module and edit in Eclipse</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#oot-module-using-c-example-general-block">OOT Module using C++ example (General block)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="todo-list.html">TODO List</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Hobbyist projects documentation</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Creating an OOT Module and edit in Eclipse</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/oot-modules.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="creating-an-oot-module-and-edit-in-eclipse">
+<h1>Creating an OOT Module and edit in Eclipse<a class="headerlink" href="#creating-an-oot-module-and-edit-in-eclipse" title="Permalink to this headline">¶</a></h1>
+<p>This section is based on the following links:</p>
+<p><a class="reference external" href="https://wiki.gnuradio.org/index.php/Guided_Tutorial_GNU_Radio_in_C%2B%2B">https://wiki.gnuradio.org/index.php/Guided_Tutorial_GNU_Radio_in_C%2B%2B</a>
+<a class="reference external" href="https://wiki.gnuradio.org/index.php/OutOfTreeModules">https://wiki.gnuradio.org/index.php/OutOfTreeModules</a>
+<a class="reference external" href="https://wiki.gnuradio.org/index.php/UsingEclipse">https://wiki.gnuradio.org/index.php/UsingEclipse</a></p>
+<div class="section" id="oot-module-using-c-example-general-block">
+<h2>OOT Module using C++ example (General block)<a class="headerlink" href="#oot-module-using-c-example-general-block" title="Permalink to this headline">¶</a></h2>
+<p>First, install all the required dependencies:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt update
+sudo apt upgrade
+sudo apt install swig libboost-all-dev cmake-data liblog4cpp5-dev codes libitpp-dev libcppunit-dev
+</pre></div>
+</div>
+<p>Then, create a directory in which you’ll place the OOT module:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir Custom OOTs
+<span class="nb">cd</span> Custom<span class="se">\ </span>OOTs/
+mkdir My<span class="se">\ </span>new<span class="se">\ </span>Mod
+<span class="nb">cd</span> My<span class="se">\ </span>new<span class="se">\ </span>Mod/
+</pre></div>
+</div>
+<p>Now issue the following command in the terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gr_modtool newmod <span class="nb">test</span>
+</pre></div>
+</div>
+<p>This will create the <code class="docutils literal notranslate"><span class="pre">gr-test</span></code> folder. Go into that folder and issue the following commands:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> gr-test/
+gr_modtool add my_test_mod
+Enter block type: general
+Language <span class="o">(</span>python/cpp<span class="o">)</span>: cpp
+Please specify the copyright holder: user
+Enter valid argument list, including default arguments: bool myParam
+Add Python QA code? <span class="o">[</span>Y/n<span class="o">]</span> n
+Add C++ QA code? <span class="o">[</span>Y/n<span class="o">]</span> n
+</pre></div>
+</div>
+<p>Now you sucessfully created the OOT module. To edit in Eclipse, create the debug and release folders (alongside <code class="docutils literal notranslate"><span class="pre">gr-test</span></code>):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ../
+mkdir gr-test-build
+mkdir gr-test-release
+</pre></div>
+</div>
+<p>Now do the following:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> gr-test-build/
+cmake -G <span class="s2">&quot;Eclipse CDT4 - Unix Makefiles&quot;</span> -D <span class="nv">CMAKE_BUILD_TYPE</span><span class="o">=</span>Debug ../gr-test/
+<span class="nb">cd</span> ../gr-test-release/
+cmake -G <span class="s2">&quot;Eclipse CDT4 - Unix Makefiles&quot;</span> ../gr-test/
+</pre></div>
+</div>
+<p>You can now import the debug and release projects using Eclipse. When done editing, to install the block into GNU Radio:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ../
+<span class="nb">cd</span> gr-test/
+mkdir build
+<span class="nb">cd</span> build/
+cmake ../
+make
+sudo make install
+sudo make ldconfig
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="todo-list.html" class="btn btn-neutral float-right" title="TODO List" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="bpsk-text.html" class="btn btn-neutral float-left" title="Creating a BPSK modulation with text file" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Guilherme Theis &amp; Helder Sales.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
