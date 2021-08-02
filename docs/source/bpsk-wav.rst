@@ -58,7 +58,7 @@ Now, to convert the raw data to BSPK modulation, use the **Repack Bits** with 8 
      - 1
    * - ``Length Tag Key``
      - string
-     - ""
+     - "__"
    * - ``Packet Alignment``
      - enum
      - Input
@@ -136,7 +136,7 @@ To see the constellation received, start by adding the **QT GUI Constellation Si
      - Complex
    * - ``Name``
      - string
-     - ""
+     - "__"
    * - ``Number of Points``
      - int
      - 1024
@@ -254,7 +254,7 @@ Finally, place the **Repack Bits** block to convert 1 bit to 8 bits per output b
      - 8
    * - ``Length Tag Key``
      - string
-     - ""
+     - "__"
    * - ``Packet Alignment``
      - enum
      - Input
@@ -349,7 +349,7 @@ Then, use the **QT GUI Time Sink** to visualize the data for comparison.
      - Float
    * - ``Name``
      - string
-     - ""
+     - "__"
    * - ``Y Axis Label``
      - string
      - Amplitude

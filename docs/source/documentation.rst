@@ -9,11 +9,11 @@ First, install ``gnuradio``:
         sudo apt upgrade
         sudo apt install gnuradio
 
-Then, to install ``rpitx`` go to the github and follow instructions there:
+Then, install ``rpitx`` into the Raspberry Pi, following instructions there:
 
 https://github.com/F5OEO/rpitx.git
 
-To install the required software to make rtl-sdr working, there's some nice guides in this website:
+To install the required software to make rtl-sdr working on linux, there's some nice guides in this website:
 
 https://ranous.wordpress.com/rtl-sdr4linux/
 
@@ -23,7 +23,16 @@ https://github.com/ghostop14/gr-grnet.git
 
 .. warning::
 
-        Might be necessary to install ``swig`` and other packages to ``cmake`` run without errors. The install CAN be completed with ``cmake`` not finishing properly, but the gnuradio flowgraph will throw errors when trying to run!
+        Might be necessary to install ``swig``, ``libpcap-dev`` and other packages to ``cmake`` run without errors. Also, you'll have
+        to add the following into ``~/.bashrc``:
+
+        export PYTHONPATH=/usr/local/lib/python3/dist-packages:/usr/local/lib/python3.9/site-packages:$PYTHONPATH
+
+        export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+
+.. note::
+
+        The python version that was used in the export was 3.9 at the time this guide was written.
 
 .. note::
 

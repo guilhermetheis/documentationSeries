@@ -152,7 +152,7 @@ Now, for the configurations:
      - Details
    * - ``Name``
      - string
-     - ""
+     - "__"
    * - ``Input Type``
      - enum
      - float
@@ -183,4 +183,4 @@ Now, for the configurations:
 
 The flowgraph shoud look like this:
 
-.. image:: /imgs/bpsk_wav/bpsk_text_1.png 
+.. image:: /imgs/bpsk_wav/bpsk_text_1.png
